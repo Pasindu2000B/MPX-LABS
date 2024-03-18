@@ -16,13 +16,17 @@
 #define _XTAL_FREQ 20000000
 #include <xc.h>
 
+unsigned char segment[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7c,0x07,0x7f,0x6f},i=0;
+
 void main(void) {
-        TRISB=0x00;
+        TRISC=0x00;
     while(1){
-        PORTB=0xFF;
-        __delay_ms(1000);
-        PORTB=0x00;
-        __delay_ms(1000);
+        PORTC=segment[0];
+        for(i=0;i<10;i++){
+            PORTC=segment[i];
+            __delay_ms(1000);
+        
+        }
         
                
     }
